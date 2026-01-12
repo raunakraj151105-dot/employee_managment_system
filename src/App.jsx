@@ -9,9 +9,10 @@ import { Authcontext } from './context/Auth'
 const App = () => {
 
   const [ usserdata, setusserdata ] = useContext(Authcontext)
-  console.log(usserdata)
+ 
   const [Loggedinuserdata, setLoggedinuserdata] = useState(null)
   const [user, setuser] = useState(null)
+
 
   useEffect(() => {
 
@@ -70,7 +71,7 @@ const App = () => {
   return (
     <div >
       {!user ? <Login handlelogin={handlelogin} /> : ''}
-      {user == "admin" ? <Admin setuser={setuser} /> : (user == "employee" ? <Employee setuser={setuser} data={Loggedinuserdata} /> : null)}
+      {user == "admin" ? <Admin data = {user} setuser={setuser} /> : (user == "employee" ? <Employee setuser={setuser} data={Loggedinuserdata} /> : null)}
     </div>
   )
 }

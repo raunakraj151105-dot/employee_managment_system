@@ -3,21 +3,13 @@ import { useState } from 'react'
 
 const Header = ({ data, setuser }) => {
 
- const [username, setusername] = useState(null)
   const logoutuser = () => {
     localStorage.setItem("loggedindata", "")
     setuser('')
 
 
   }
-
-  // if (!data){
-  //   setusername('admin')
-    
-  // }
-  // else{
-  //   setusername(data.firstName)
-  // }
+   const username = data?.firstName || 'Admin'
   return (
     <div>
 
@@ -25,7 +17,7 @@ const Header = ({ data, setuser }) => {
         <h1 className="text-3xl font-semibold">
           Hello <br /> <span className="text-5xl font-bold text-emerald-400">
 
-            username👋</span>
+            {username}👋</span>
         </h1>
         <button
           onClick={logoutuser}
